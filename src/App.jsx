@@ -30,7 +30,11 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header
+        setPokemons={setPokemons}
+        setScore={setScore}
+        pokemons={pokemons}
+      />
       <main>
         <Cards
           pokemons={pokemons}

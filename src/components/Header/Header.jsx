@@ -1,6 +1,6 @@
 import "./Header.css";
 
-function Header() {
+function Header({ setPokemons, setScore, pokemons }) {
   return (
     <header>
       <div className="heading-container">
@@ -10,7 +10,19 @@ function Header() {
           any more than once!
         </h2>
       </div>
-      <button>Restart</button>
+      <button
+        onClick={() => {
+          alert("Restarting...");
+          const newPokemons = [...pokemons];
+          for (let i = 0; i < newPokemons.length; i++) {
+            newPokemons[i].hasBeenClicked = false;
+          }
+          setPokemons(newPokemons);
+          setScore(0);
+        }}
+      >
+        Restart
+      </button>
     </header>
   );
 }
